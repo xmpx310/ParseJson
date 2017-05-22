@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Json Parse Tools</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jsonview-core.css" rel="stylesheet">
+    <script src="js/content.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    form [class^="col-"] {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #eee;
+      background-color: rgba(86,61,124,.15);
+      border: 1px solid #ddd;
+      border: 1px solid rgba(86,61,124,.2);
+    }
+    .button [class^="col-"] {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #eee;
+      background-color: rgba(86,61,124,.15);
+      
+    }
+    #json_explain{min-height: 204px;}
+
+    </style>
+  </head>
+  <body>
+<div class="container">
+    <div class="page-header">
+        <h1>解析json字符串</h1>
+    </div>
+    <div class="row show-grid">
+    <div class="form-group button">
+        <div class="col-xs-4">
+        <button type="submit" name="submit" class="btn btn-primary center-block">提交</button>
+        </div>
+        <div class="col-xs-4">
+        <button type="submit" name="openAll" class="btn btn-primary center-block">展开</button>
+        </div>
+        <div class="col-xs-4">
+        <button type="submit" name="closeAll" class="btn btn-primary center-block">闭合</button>
+        </div>
+    <div class="clearfix visible-xs-block"></div>
+    </div>
+    <form>
+    <div class="form-group">
+    <div class="col-xs-6">
+    <label for="exampleInputEmail1">JSON:</label>
+    <textarea class="form-control" rows="10" name="json"></textarea>
+    </div>
+    
+    
+    
+    </div>  
+    <div class="form-group">
+        <div class="col-xs-6">
+        <label for="exampleInputEmail1">Array:</label>
+        <p id="json_explain"></p>
+        </div>
+    </div>
+    </form>
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(function() {
+    $("button[name='submit']").click(function(){
+        var jsonText = $("textarea[name='json']").val();
+        try {
+			var jsonObject = JSON.parse(jsonText);
+		} catch (e) {
+            alert('请输入正确的json字符串');
+            return false;
+		}
+        $(json_explain).html('');
+        var jsonHTML = jsonToHTML(jsonObject);
+        displayUI(jsonHTML,'json_explain');
+        
+        
+    })
+});
+    
+    </script>
+  </body>
+</html>
