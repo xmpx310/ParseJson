@@ -150,6 +150,7 @@ body {
 
 .type-string {
   color: green;
+  word-break: break-all;
 }
 
 .callback-function {
@@ -178,6 +179,7 @@ body {
   padding-left: 2px;
   padding-right: 2px;
   border-radius: 2px;
+  word-break: break-all
 }
 
 .hovered {

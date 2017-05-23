@@ -190,7 +190,7 @@ function jsonToHTML(json, fnName) {
 
 function displayUI(html,Container) {
 	var statusElement, toolboxElement, expandElement, reduceElement, viewSourceElement, optionsElement, content = "";
-	content += '<link rel="stylesheet" type="text/css" href="jsonview-core.css">';
+	// content += '<link rel="stylesheet" type="text/css" href="css/jsonview-core.css">';
 	//content += "<style>" + theme.replace(/<\/\s*style/g, '') + "</style>";
 	content += html;
 	document.getElementById(Container).innerHTML = content;
@@ -201,30 +201,30 @@ function displayUI(html,Container) {
 	copyPathElement.className = "copy-path";
 	statusElement.appendChild(copyPathElement);
 	document.body.appendChild(statusElement);
-	toolboxElement = document.createElement("div");
-	toolboxElement.className = "toolbox";
+	// toolboxElement = document.createElement("div");
+	// toolboxElement.className = "toolbox";
 	expandElement = document.createElement("span");
 	expandElement.title = "expand all";
 	expandElement.innerText = "+";
 	reduceElement = document.createElement("span");
 	reduceElement.title = "reduce all";
 	reduceElement.innerText = "-";
-	viewSourceElement = document.createElement("a");
-	viewSourceElement.innerText = "View source";
-	viewSourceElement.target = "_blank";
-	viewSourceElement.href = "view-source:" + location.href;
+	// viewSourceElement = document.createElement("a");
+	// viewSourceElement.innerText = "View source";
+	// viewSourceElement.target = "_blank";
+	// viewSourceElement.href = "view-source:" + location.href;
 	// optionsElement = document.createElement("img");
 	// optionsElement.title = "options";
 	// optionsElement.src = "options.png";
-	toolboxElement.appendChild(expandElement);
-	toolboxElement.appendChild(reduceElement);
-	toolboxElement.appendChild(viewSourceElement);
+	// toolboxElement.appendChild(expandElement);
+	// toolboxElement.appendChild(reduceElement);
+	// toolboxElement.appendChild(viewSourceElement);
 	// toolboxElement.appendChild(optionsElement);
-	document.body.appendChild(toolboxElement);
+	// document.body.appendChild(toolboxElement);
 	document.body.addEventListener('click', ontoggle, false);
 	document.body.addEventListener('mouseover', onmouseMove, false);
 	document.body.addEventListener('click', onmouseClick, false);
-	document.body.addEventListener('contextmenu', onContextMenu, false);
+	// document.body.addEventListener('contextmenu', onContextMenu, false);
 	expandElement.addEventListener('click', onexpand, false);
 	reduceElement.addEventListener('click', onreduce, false);
 	/*optionsElement.addEventListener("click", function(ev) {
