@@ -86,28 +86,22 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
     $(function() {
-    $("button[name='submit']").click(function(){
-        var jsonText = $("textarea[name='json']").val();
-        try {
-			var jsonObject = JSON.parse(jsonText);
-		} catch (e) {
-            alert('请输入正确的json字符串');
-            return false;
-		}
-        $(json_explain).html('');
-        var jsonHTML = jsonToHTML(jsonObject);
-        displayUI(jsonHTML,'json_explain');
-        
-        
-    })
-    $("button[name='clearAll']").click(function(){
-        $(json_explain).html('');
-        $("textarea[name='json']").val('');
-        <!-- var jsonHTML = jsonToHTML(jsonObject); -->
-        <!-- displayUI(jsonHTML,'json_explain'); -->
-        
-        
-    })
+        $("button[name='submit']").click(function(){
+            var jsonText = $("textarea[name='json']").val();
+            try {
+                var jsonObject = JSON.parse(jsonText);
+            } catch (e) {
+                alert('请输入正确的json字符串');
+                return false;
+            }
+            $(json_explain).html('');
+            var jsonHTML = jsonToHTML(jsonObject);
+            displayUI(jsonHTML,'json_explain');
+        })
+        $("button[name='clearAll']").click(function(){
+            $(json_explain).html('');
+            $("textarea[name='json']").val('');
+        })
 });
     
     </script>
